@@ -1,5 +1,4 @@
 {
-  "homepage": "https://elliotfouts.github.io/Portfolio",
   "name": "react-portfolio",
   "proxy": "http://localhost:3001/",
   "version": "0.1.0",
