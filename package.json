@@ -9,7 +9,7 @@
     "start:development": "concurrently \"nodemon server.js\" \"npm run client\"",
     "client": "cd client && npm run start",
     "build": "cd client && npm run build",
-    "install": "concurrently \"npm install\" \"cd client && npm install\""
+    "install": "cd client && npm install"
   },
   "keywords": [],
   "author": "Elliot Fouts <elliotfouts@gmail.com>",
