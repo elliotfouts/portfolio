@@ -10,6 +10,7 @@ router.post('/',  ({body: {email, message}}, response) => {
     }
   });
 
+  console.log(process.env.GMAIL_USER, process.env.GMAIL_PASS);
     // Specify what the email will look like
   const emailContent = {
     from: 'nodemailer app', // This is ignored by Gmail
