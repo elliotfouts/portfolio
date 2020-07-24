@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express');
 const nodemailer = require('nodemailer');
+const path = require('path');
 const {nodemailerRoutes} = require('./routes');
 
 // instantiate express and set port
