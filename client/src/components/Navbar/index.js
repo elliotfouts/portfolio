@@ -73,7 +73,7 @@ const Navbar = ({children}) => {
   const toggleMenu = () => setOpen(!open);
   const handleClick = (event) => {   
     setOpen(false);
-    window.open(`/Portfolio/#${event.target.getAttribute('name')}`, '_self');
+    window.open(`/#${event.target.getAttribute('name')}`, '_self');
   }
 
   return (
