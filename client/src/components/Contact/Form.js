@@ -50,7 +50,7 @@ const useStyles = makeStyles({
     },
     '@media (max-width: 1000px)': {
       width: '85%',
-      '& input, & textarea': {
+      '& div input, & textarea': {
         fontSize: '1rem',
       }
     },
