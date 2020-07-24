@@ -30,4 +30,8 @@ router.post('/',  ({body: {email, message}}, response) => {
   })
 });
 
+router.get('/', (request, response) => {
+  response.json({message: 'route hit'});
+})
+
 module.exports = router;
