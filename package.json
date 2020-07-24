@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "per-env",
-    "start:production": "npm run",
+    "start:production": "node server",
     "start:development": "concurrently \"nodemon server.js\" \"npm run client\"",
     "client": "cd client && npm run start",
     "build": "cd client && npm run build",
