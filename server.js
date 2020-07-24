@@ -11,6 +11,9 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// routes 
+app.use('/email', routes)
+
 // Serve up static assets for heroku
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
@@ -19,8 +22,6 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-// routes 
-app.use(routes)
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
