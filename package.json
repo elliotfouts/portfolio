@@ -1,0 +1,22 @@
+{
+  "name": "react-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "per-env",
+    "start:production": "node server.js",
+    "start:development": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "client": "cd client && npm run start"
+  },
+  "keywords": [],
+  "author": "Elliot Fouts <elliotfouts@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.10",
+    "per-env": "^1.0.2"
+  }
+}
