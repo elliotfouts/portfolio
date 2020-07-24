@@ -6,6 +6,7 @@ import Search from '@material-ui/icons/Search';
 import {Palette} from '../../utils';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import axios from 'axios';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -65,7 +66,9 @@ const Form = () => {
   const classes = useStyles();
   const [formValues, setFormValues] = useState({message: '', email: ''});
   const [toast, setToast] = useState({open: false, message: '', severity: 'success'});
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+
+  const matches = useMediaQuery('(min-width:1000px)');
 
   const handleInputChange = ({target: {value, name}}) => {
     setFormValues({...formValues, [name]: value});
@@ -103,7 +106,7 @@ const Form = () => {
 
   return (
     <div className={classes.root}>
-      <Snackbar open={toast.open} autoHideDuration={6000} onClose={handleToastClose}>
+      <Snackbar anchorOrigin={(matches)? { vertical: 'bottom', horizontal: 'left' }: { vertical: 'top', horizontal: 'center' }} open={toast.open} autoHideDuration={6000} onClose={handleToastClose}>
         <Alert onClose={handleToastClose} severity={toast.severity}>
           {toast.message}
         </Alert>

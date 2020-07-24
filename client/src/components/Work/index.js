@@ -19,7 +19,7 @@ const Work = () => {
   const classes = useStyles();
   return (
     <div id='work' className={classes.root}>
-      <Heading text={'Selected Work'} style={{color: Palette.PrimaryText}}/>
+      <Heading text={'Selected Work'} style={{color: Palette.PrimaryText, paddingTop: '5rem'}}/>
       <WorkGrid/>
       <Button/>
     </div>

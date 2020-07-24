@@ -16,8 +16,11 @@ const useStyles = makeStyles({
       justifyContent: 'space-around',
       height: '90vh',
       fontSize: '3rem',
+      paddingBottom: '3rem',
       color: Palette.Blue,
       '& p, & a': {
+        padding: '0',
+        margin: '0',
         color: 'currentColor',
         textDecoration: 'none',
         transition: 'all 300ms',
