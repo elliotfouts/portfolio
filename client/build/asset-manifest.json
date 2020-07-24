@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.js": "/Portfolio/static/js/main.d78a847d.chunk.js",
+    "main.js.map": "/Portfolio/static/js/main.d78a847d.chunk.js.map",
+    "runtime-main.js": "/Portfolio/static/js/runtime-main.b9da9406.js",
+    "runtime-main.js.map": "/Portfolio/static/js/runtime-main.b9da9406.js.map",
+    "static/js/2.d128893f.chunk.js": "/Portfolio/static/js/2.d128893f.chunk.js",
+    "static/js/2.d128893f.chunk.js.map": "/Portfolio/static/js/2.d128893f.chunk.js.map",
+    "index.html": "/Portfolio/index.html",
+    "precache-manifest.fc46a5b359c0db112e327623c1eb5617.js": "/Portfolio/precache-manifest.fc46a5b359c0db112e327623c1eb5617.js",
+    "service-worker.js": "/Portfolio/service-worker.js",
+    "static/js/2.d128893f.chunk.js.LICENSE.txt": "/Portfolio/static/js/2.d128893f.chunk.js.LICENSE.txt",
+    "static/media/Elliot_Fouts_Resume.pdf": "/Portfolio/static/media/Elliot_Fouts_Resume.732a490a.pdf",
+    "static/media/code.png": "/Portfolio/static/media/code.e765e3fe.png",
+    "static/media/codifyDesktop.png": "/Portfolio/static/media/codifyDesktop.3b977052.png",
+    "static/media/codifyMobile.png": "/Portfolio/static/media/codifyMobile.f9233937.png",
+    "static/media/gitConnected.png": "/Portfolio/static/media/gitConnected.057611a9.png",
+    "static/media/grocerease.png": "/Portfolio/static/media/grocerease.a691dfaf.png",
+    "static/media/javascriptQuiz.png": "/Portfolio/static/media/javascriptQuiz.51c7abcc.png",
+    "static/media/weatherForecast.png": "/Portfolio/static/media/weatherForecast.441f6d27.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b9da9406.js",
+    "static/js/2.d128893f.chunk.js",
+    "static/js/main.d78a847d.chunk.js"
+  ]
+}
