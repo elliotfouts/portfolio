@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/styles';
 import {Snackbar} from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Search from '@material-ui/icons/Search';
 import {Palette} from '../../utils';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import axios from 'axios';
@@ -15,7 +17,7 @@ const useStyles = makeStyles({
     display: 'grid',
     gridTemplateColumns: '1fr',
     gridGap: '1rem',
-    '& input, & textarea': {
+    '&>div>input, &>textarea': {
       border: 'none',
       fontSize: '1.5rem',
       padding: '10px',
@@ -25,9 +27,9 @@ const useStyles = makeStyles({
         outline: `2px solid ${Palette.Blue}`,
       }
     },
-    '& div': {
+    '&>div': {
       display: 'flex',
-      '& .send-button': {
+      '&>.send-button': {
         marginLeft: '1rem',
         background: Palette.Blue,
         border: 'none',
@@ -52,6 +54,10 @@ const useStyles = makeStyles({
         fontSize: '1rem',
       }
     },
+  },
+  loading: {
+    color: Palette.Blue,
+    marginLeft: '1rem',
   }
 })
 
@@ -59,6 +65,7 @@ const Form = () => {
   const classes = useStyles();
   const [formValues, setFormValues] = useState({message: '', email: ''});
   const [toast, setToast] = useState({open: false, message: '', severity: 'success'});
+  const [loading, setLoading] = useState(false)
 
   const handleInputChange = ({target: {value, name}}) => {
     setFormValues({...formValues, [name]: value});
@@ -66,7 +73,9 @@ const Form = () => {
   const handleSubmit = async () => {
     if (isValidInputs()) {
       try {
+        setLoading(true);
         const result = await axios.post('/email', formValues);
+        setLoading(false);
         setToast({open: true, message: 'your message has been sent!', severity: 'success'});
         setFormValues({message: '', email: ''});
       } catch (error) {
@@ -102,7 +111,11 @@ const Form = () => {
       <textarea onChange={handleInputChange} name={'message'} value={formValues.message} rows='7' placeholder={'Hello Elliot,'}/>
       <div>
         <input onChange={handleInputChange} name={'email'} value={formValues.email} placeholder={'your@email.com'}/>
-        <button className='send-button' onClick={handleSubmit}>Send</button>
+        <button className='send-button' onClick={handleSubmit}>
+        {(loading) 
+        ? <CircularProgress style={{color: Palette.White, height: '30px', width: '30px'}}/>
+        : <p style={{margin: '0', padding: '0', color: 'currentColor'}}>SEND</p>}
+        </button>
       </div>
     </div>
   )

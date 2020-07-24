@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/styles';
 import {Collapse} from '@material-ui/core';
+import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import {Palette} from '../../utils';
+import Resume from './Elliot_Fouts_Resume.pdf';
 
 const useStyles = makeStyles({
   menu: {
@@ -15,7 +17,9 @@ const useStyles = makeStyles({
       height: '90vh',
       fontSize: '3rem',
       color: Palette.Blue,
-      '& p': {
+      '& p, & a': {
+        color: 'currentColor',
+        textDecoration: 'none',
         transition: 'all 300ms',
         '&:hover': {
           color: Palette.PrimaryText,
@@ -24,10 +28,7 @@ const useStyles = makeStyles({
     }
   },
   menuIcon: {
-    transition: 'all 300ms',
-    '&:hover': {
-      color: Palette.PrimaryText,
-    }
+    color: Palette.Blue,
   },
   root: {
   '&>main':{
@@ -37,7 +38,7 @@ const useStyles = makeStyles({
       width: '100%',
       background: Palette.White,
       boxShadow: '4px 4px 4px rgba(0, 0, 0, 0.2)',
-    '& nav': {
+    '&>nav': {
       height: '10vh',
       width: '100%',
       padding: '0 2rem',
@@ -45,14 +46,14 @@ const useStyles = makeStyles({
       justifyContent: 'space-between',
       alignItems: 'center',
       color: Palette.Blue,
-      '& span': {
+      '&>span': {
         height: '30px',
         width: '30px',
         border: '1px solid currentColor',
         borderRadius: '50%',
         display: 'grid',
         placeItems: 'center',
-        '& p': {
+        '&>p': {
           margin: '0',
           padding: '0',
         }
@@ -80,22 +81,20 @@ const Navbar = ({children}) => {
             <p>E</p>
           </span>
 
-          {/* <IconButton> */}
-          <div>
+          <IconButton onClick={toggleMenu}>
             {
               open ? 
-              <CloseIcon className={classes.menuIcon} onClick={toggleMenu}/> 
-              : <MenuIcon className={classes.menuIcon} onClick={toggleMenu}/>
+              <CloseIcon className={classes.menuIcon}/> 
+              : <MenuIcon className={classes.menuIcon}/>
             }
-          </div>
-          {/* </IconButton> */}
+          </IconButton>
           
         </nav>
         <Collapse in={open} className={classes.menu} timeout={1000}>
           <div>
             <p onClick={handleClick} name='home'>HOME</p>
             <p onClick={handleClick} name='work'>WORK</p>
-            <p onClick={handleClick} name=''>RESUME</p>
+            <a href={Resume} target='blank'>RESUME</a>
             <p onClick={handleClick} name='contact'>CONTACT</p>
           </div>
         </Collapse>

@@ -11,11 +11,11 @@ const useStyles = makeStyles({
     padding: '6rem',
     '& a': {
       fontSize: '50px',
-      color: Palette.SecondaryText,
+      color: Palette.Blue,
       margin: '2rem',
       transition: 'all 300ms',
       '&:hover': {
-        color: Palette.PrimaryText,
+        color: Palette.SecondaryText,
       }
     },
     '@media (max-width: 1000px)': {

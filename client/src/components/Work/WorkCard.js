@@ -22,6 +22,9 @@ const useStyles = makeStyles({
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
+      '&>h1': {
+        fontWeight: '100',
+      },
       '& span a': {
           marginLeft: '1rem',
           color: 'currentColor',
