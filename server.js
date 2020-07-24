@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // routes 
-app.use('/email', routes)
+app.use(routes)
 
 // Serve up static assets for heroku
 if (process.env.NODE_ENV === 'production') {
