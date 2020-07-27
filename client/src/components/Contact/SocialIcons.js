@@ -15,7 +15,7 @@ const useStyles = makeStyles({
       margin: '2rem',
       transition: 'all 300ms',
       '&:hover': {
-        color: Palette.SecondaryText,
+        color: '#0e98e9',
       }
     },
     '@media (max-width: 1000px)': {
