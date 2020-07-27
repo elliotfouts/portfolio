@@ -84,7 +84,7 @@ const Navbar = ({children}) => {
             <p>E</p>
           </span>
 
-          <IconButton onClick={toggleMenu}>
+          <IconButton style={{cursor: 'none',}} onClick={toggleMenu}>
             {
               open ? 
               <CloseIcon className={classes.menuIcon}/> 
