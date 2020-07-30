@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {makeStyles} from '@material-ui/styles';
 import {Collapse, Hidden} from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
@@ -18,14 +18,18 @@ const useStyles = makeStyles({
       fontSize: '3rem',
       paddingBottom: '3rem',
       color: Palette.Blue,
-      '& p, & a': {
+      '& a': {
         padding: '0',
         margin: '0',
         color: 'currentColor',
         textDecoration: 'none',
         transition: 'all 300ms',
+        '&.active': {
+          color: '#3CB7FF15',
+          textStroke: `1px ${Palette.Blue}`,
+        },
         '&:hover': {
-          color: Palette.PrimaryText,
+          color: Palette.BlueHover,
         }
       }
     }
@@ -49,16 +53,24 @@ const useStyles = makeStyles({
       justifyContent: 'space-between',
       alignItems: 'center',
       color: Palette.Blue,
-      '&>span': {
-        height: '30px',
-        width: '30px',
-        border: '1px solid currentColor',
-        borderRadius: '50%',
-        display: 'grid',
-        placeItems: 'center',
-        '&>p': {
-          margin: '0',
-          padding: '0',
+      '&>a': {
+        textDecoration: 'none',
+        color: 'currentColor',
+        transition: 'all 300ms',
+        '&:hover': {
+          color: Palette.BlueHover,
+        },
+        '&>span': {
+          height: '30px',
+          width: '30px',
+          border: '1px solid currentColor',
+          borderRadius: '50%',
+          display: 'grid',
+          placeItems: 'center',
+          '&>p': {
+            margin: '0',
+            padding: '0',
+          }
         }
       }
     }
@@ -81,23 +93,25 @@ const useStyles = makeStyles({
 const Navbar = ({children}) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false)
+  const [active, setActive] = useState('');
 
-  const toggleMenu = () => setOpen(!open);
-  const handleClick = (event) => {   
-    setOpen(false);
-    window.open(`/#${event.target.getAttribute('name')}`, '_self');
-  }
+  useEffect(()=>{
+    const url = new URL(window.location.href);
+    setActive(url.pathname.substr(1));
+  }, []);
 
   return (
     <div className={classes.root}>
       <main>
         <nav>
-          <span>
-            <p>E</p>
-          </span>
+          <a href='/'>
+            <span>
+              <p>E</p>
+            </span>
+          </a>
 
           <Hidden smUp>
-            <IconButton style={{cursor: 'none',}} onClick={toggleMenu}>
+            <IconButton style={{cursor: 'none',}} onClick={() => setOpen(!open)}>
               {
                 open ? 
                 <CloseIcon className={classes.menuIcon}/> 
@@ -108,18 +122,18 @@ const Navbar = ({children}) => {
 
           <Hidden xsDown>
             <div className={classes.navLinks}>
-              <a href='/work'>Work</a>
+              <a className={(active=='work')?'active':''} href='/work'>Work</a>
               <a href={Resume}>Resume</a>
-              <a href='/contact'>Contact</a>
+              <a className={(active=='contact')?'active':''} href='/contact'>Contact</a>
             </div>
           </Hidden>   
         </nav>
         <Collapse in={open} className={classes.menu} timeout={1000}>
           <div>
-            <p onClick={handleClick} name='home'>HOME</p>
-            <p onClick={handleClick} name='work'>WORK</p>
+            <a className={(active=='')?'active':''} href='/'>HOME</a>
+            <a className={(active=='work')?'active':''} href='/work'>WORK</a>
             <a href={Resume} target='blank'>RESUME</a>
-            <p onClick={handleClick} name='contact'>CONTACT</p>
+            <a className={(active=='contact')?'active':''} href='/contact'>CONTACT</a>
           </div>
         </Collapse>
       </main>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Divider from '@material-ui/core/Divider';
 import {makeStyles} from '@material-ui/styles';
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -19,7 +19,7 @@ const useStyles = makeStyles({
       height: '200px',
       margin: '2rem',
     },
-    '& img': {
+    '& img, & video': {
       maxHeight: '200px',
       maxWidth: '200px',
     },
@@ -92,12 +92,18 @@ const useStyles = makeStyles({
   }
 });
 
-const WorkCard = ({info: {imageUrl, imageAlt, title, githubUrl, demoUrl, description, chips}}) => {
+const WorkCard = ({info: {image, video, imageAlt, title, githubUrl, demoUrl, description, chips}}) => {
   const classes = useStyles();
+  const [hover, setHover] = useState(false);
+
   return (
-    <div className={classes.root}>
+    <div className={classes.root} onMouseEnter={() => setHover(false)} onMouseLeave={() => setHover(false)}>
       <div className='image-container'>
-        <img alt={imageAlt} src={require('../../imgs/' + imageUrl)}/>
+        {
+          (hover)
+          ? <video><source src={video} type="video/mp4"/></video>
+          : <img alt={imageAlt} src={image}/>
+        }
       </div>
       <header>
         <h1>{title}</h1>
@@ -110,7 +116,7 @@ const WorkCard = ({info: {imageUrl, imageAlt, title, githubUrl, demoUrl, descrip
         {chips.map(chip => <div><p>{chip}</p></div>)}
       </div>
       <p>{description}</p>
-      <a href={githubUrl}>View project on Github</a>
+      <a href={githubUrl} target='_blank'>View project on Github</a>
     </div>
   )
 }

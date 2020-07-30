@@ -1,6 +1,5 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/styles';
-import Work from './workInfo';
 import WorkCard from './WorkCard';
 
 const useStyles = makeStyles({
@@ -18,11 +17,11 @@ const useStyles = makeStyles({
   }
 });
 
-const WorkGrid = () => {
+const WorkGrid = ({work}) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      {Work.WorkArr.map((info, index) => <WorkCard key={index} info={info}/>)}
+      {work.map((info, index) => <WorkCard key={index} info={info}/>)}
     </div>
   )
 }

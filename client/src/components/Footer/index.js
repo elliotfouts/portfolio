@@ -54,9 +54,13 @@ const classes = useStyles();
     return (
       <div className={classes.root}>
         <a href={'mailto:elliotfouts@gmail.com'}>elliotfouts@gmail.com</a>
-        <div class='icons'>
-          <i class="fab fa-github-alt"></i>
-          <i class="fab fa-linkedin-in"></i>
+        <div className='icons'>
+          <a target='_blank' href='https://github.com/elliotfouts'>
+            <i className="fab fa-github-alt"></i>
+          </a>
+          <a target='_blank' href='https://linkedin.com/in/elliotfouts'>
+            <i className="fab fa-linkedin-in"></i>
+          </a>
         </div>
       </div>
     );

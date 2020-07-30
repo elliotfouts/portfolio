@@ -25,7 +25,7 @@ const WorkButton = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <a href='https://github.com/elliotfouts' target='blank'>VIEW ALL PROJECTS</a>
+      <a href='/work'>VIEW ALL PROJECTS</a>
     </div>
   )
 }

@@ -1,38 +1,55 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/styles';
-import Form from './Form';
-import SocialIcons from './SocialIcons';
 import {Palette} from '../../utils';
-import Header from '../Heading';
+import MailOutlinedIcon from '@material-ui/icons/MailOutlined';
 
 const useStyles = makeStyles({
   root: {
+    padding: '5rem',
+    paddingTop: '10rem',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
-    background: Palette.BlueTransparent,
-    marginTop: '9rem',
-    padding: '3rem',
-    '&>div': {
-      display: 'flex',
-      width: '100%',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    '& p': {
-      paddingTop: '7rem',
-      color: Palette.SecondaryText,
-    },
-    '@media (max-width: 1395px)': {
-      '&>div': {
-        flexDirection: 'column',
+    justifyContent: 'space-between',
+    height: '100vh',
+    color: Palette.Blue,
+    '& .text': {
+      // paddingLeft: '2rem',
+      // borderLeft: `1px solid ${Palette.SecondaryText}`,
+      '&>h1': {
+        margin: 0,
+        padding: 0,
+        fontWeight: 200,
+        color: Palette.SecondaryText,
+        fontSize: '2rem',
+        '@media (max-width: 500px)': {
+            fontSize: '1.5rem',
+        },
       },
-      '& p': {
-        paddingTop: '0rem',
-      }
+      '&>a': {
+        margin: 0,
+        padding: 0,
+        fontWeight: 200,
+        color: 'currentColor',
+        fontSize: '2rem',
+        '@media (max-width: 500px)': {
+          fontSize: '1.5rem',
+        }
+      },
     },
-    '@media (max-width: 1000px)': {
-      padding: '2rem',
+    '& .icons': {
+      '& i': {
+        marginLeft: '1rem',
+        fontSize: '2rem',
+        color: Palette.SecondaryText,
+        transition: 'color 300ms',
+        '&:hover': {
+          color: Palette.Blue,
+        }
+      },
+    },
+    '@media (max-width: 500px)': {
+        padding: '2rem',
+        paddingTop: '10rem',
     }
   }
 })
@@ -40,13 +57,23 @@ const useStyles = makeStyles({
 const Contact = () => {
   const classes = useStyles();
   return (
-    <div id='contact' className={classes.root}>
-      <Header text={'Get in touch'} style={{color: Palette.SecondaryText}}/>
-      <div>
-        <Form/>
-        <SocialIcons/>
+    <div className={classes.root}>
+    <div>
+      <MailOutlinedIcon style={{fontSize: 50}}/>
+      <div className='text'>
+        <h1>the best way to reach me is by email at </h1>
+        <a href='mailto:elliotfouts@gmail.com'>elliotfouts@gmail.com</a>
       </div>
-      <p>Copyright 2020</p>
+    </div>
+
+      <div className='icons'>
+        <a target='_blank' href='https://github.com/elliotfouts'>
+          <i className="fab fa-github-alt"></i>
+        </a>
+        <a target='_blank' href='https://linkedin.com/in/elliotfouts'>
+          <i className="fab fa-linkedin-in"></i>
+        </a>
+      </div>
     </div>
   )
 }
