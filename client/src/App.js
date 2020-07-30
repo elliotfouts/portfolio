@@ -5,18 +5,26 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import Index from './components/index';
-
+import {Home, Work, Contact} from './components/index';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <Router>
         <CssBaseline>
+          <Navbar>
           <Switch>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/work">
+              <Work />
+            </Route>
             <Route path="*">
-              <Index />
+              <Home />
             </Route>
           </Switch>
+          </Navbar>
         </CssBaseline>
     </Router>
   );

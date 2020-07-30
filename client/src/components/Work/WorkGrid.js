@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     padding: '4rem 0',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr',
-    gridGap: '6rem',
+    gridGap: '3rem',
     '@media (max-width: 1200px)': {
       gridTemplateColumns: '1fr 1fr',
     },

@@ -8,6 +8,7 @@ const useStyles = makeStyles({
     height: '100%',
     width: '100%',
     padding: '5rem',
+    paddingRight: '0rem',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -28,7 +29,6 @@ const useStyles = makeStyles({
     },
     '& h2': {
       margin: '0',
-      marginBottom: '8rem',
       padding: '0',
       paddingLeft: '1rem',
       fontSize: '3rem',
@@ -52,13 +52,27 @@ const useStyles = makeStyles({
       '& p': {
       }
     },
+    '@media (max-width: 1220px)': {
+      padding: '3rem',
+      paddingRight: '0',
+      '& h2': {
+        fontSize: '2.5rem',
+      }
+    },
+    '@media (max-width: 1050px)': {
+      '& h2': {
+        fontSize: '2rem',
+      }
+    },
     '@media (max-width: 700px)': {
       padding: '3rem',
+      paddingBottom: '0',
+      paddingTop: '8rem',
       '& h1': {
         fontSize: '2rem',
       },
       '& h2': {
-        fontSize: '2rem',
+        fontSize: '1.5rem',
       },
       '& h3': {
         fontSize: '1rem',
@@ -74,11 +88,6 @@ const WelcomeText = () => {
       <h3>Hello, my name is</h3>
       <h1>Elliot Fouts.</h1>
       <h2>I build web applications</h2>
-
-      <span onClick={()=> smoothScroll('work')}>
-        <p>view work</p>
-        <ArrowDownwardIcon/>
-      </span>
     </div>
   )
 }

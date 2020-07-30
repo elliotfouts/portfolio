@@ -1,27 +1,21 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/styles';
-import Hidden from '@material-ui/core/Hidden';
-import WelcomeText from './WelcomeText';
-import ImageGrid from './ImageGrid';
+// import Navbar from './Navbar';
+import Landing from './Landing';
+import SelectedWork from './SelectedWork';
+import Footer from '../Footer';
 
-const useStyles = makeStyles({
-  root: {
-    height: '90vh',
-    display: 'flex',
-    paddingTop: '10vh',
-  }
-})
-
-const Landing = () => {
-  const classes = useStyles();
+const Index = () => {
   return (
-    <div id='home' className={classes.root}>
-      <WelcomeText/>
-      <Hidden smDown>
-        <ImageGrid/>
-      </Hidden>
+    <div>    
+      {/* <Navbar> */}
+        <div> 
+          <Landing/>
+          <SelectedWork/>
+          <Footer/>
+        </div>
+      {/* </Navbar> */}
     </div>
   )
 }
 
-export default Landing;
+export default Index;

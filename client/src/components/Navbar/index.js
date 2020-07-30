@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/styles';
-import {Collapse} from '@material-ui/core';
+import {Collapse, Hidden} from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
@@ -63,6 +63,18 @@ const useStyles = makeStyles({
       }
     }
   }
+  },
+  navLinks: {
+    display: 'flex',
+    '& a': {
+      marginLeft: '2rem',
+      textDecoration: 'none',
+      color: Palette.SecondaryText,
+      transition: 'color 300ms',
+      '&.active, &:hover': {
+        color: Palette.Blue,
+      }
+    }
   }
 })
 
@@ -84,14 +96,23 @@ const Navbar = ({children}) => {
             <p>E</p>
           </span>
 
-          <IconButton style={{cursor: 'none',}} onClick={toggleMenu}>
-            {
-              open ? 
-              <CloseIcon className={classes.menuIcon}/> 
-              : <MenuIcon className={classes.menuIcon}/>
-            }
-          </IconButton>
-          
+          <Hidden smUp>
+            <IconButton style={{cursor: 'none',}} onClick={toggleMenu}>
+              {
+                open ? 
+                <CloseIcon className={classes.menuIcon}/> 
+                : <MenuIcon className={classes.menuIcon}/>
+              }
+            </IconButton>
+          </Hidden>
+
+          <Hidden xsDown>
+            <div className={classes.navLinks}>
+              <a href='/work'>Work</a>
+              <a href={Resume}>Resume</a>
+              <a href='/contact'>Contact</a>
+            </div>
+          </Hidden>   
         </nav>
         <Collapse in={open} className={classes.menu} timeout={1000}>
           <div>
